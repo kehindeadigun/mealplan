@@ -5,10 +5,11 @@
         <link href= 'home.css'rel='stylesheet' type='text/css'>
     </head>
     <body>
-        {{form.choices.label}}
-        {{form.choices9rws=5, multiple=True}}
-        <form method='POST'>
-
-        </form>
+        <h1>Make a choice of proteins</h1>
+        <div class="form">
+            <div>{{ form.choices.label }} </div><div>{{ form.choices(rows=12, size=20, width=20, multiple=True) }}</div>
+            <div>{{ form.submit }}</div>  
+        </div>
+        <h2>Thank you</h2>
     </body>
 </html>
