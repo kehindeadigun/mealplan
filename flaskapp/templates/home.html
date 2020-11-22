@@ -11,8 +11,11 @@
         </header>
     
         <div class="form">
-            <div id="form-label">{{ form.choices.label }}</div><div class="form-choices">{{ form.choices(rows=12, size=20, width=20, multiple=True) }}</div>
-            <div class="submit-button">{{ form.submit }}</div>  
+            <form method="POST" action="/home">
+            {{ form.csrf_token }}
+            <div id="form-label">{{ form.choices.label }}</div><div class="form-choices">{{ form.choices(rows=optionlength, size=20, width=20, multiple=True) }}</div>
+            <div class="submit-button">{{ form.submit }}</div>
+            </form>
         </div>
         <h2>Thank you</h2>
         {% with messages = get_flashed_messages() %}
