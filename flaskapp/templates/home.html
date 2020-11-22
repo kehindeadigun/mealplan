@@ -1,14 +1,18 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Meal Plan</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href= 'home.css'rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' type='text/css' href='static/css/home.css'>
     </head>
     <body>
-        <h1>Make a choice of proteins</h1>
+        <header>
+            <h1>Make a choice of proteins</h1>
+        </header>
+    
         <div class="form">
-            <div>{{ form.choices.label }} </div><div>{{ form.choices(rows=12, size=20, width=20, multiple=True) }}</div>
-            <div>{{ form.submit }}</div>  
+            <div id="form-label">{{ form.choices.label }}</div><div class="form-choices">{{ form.choices(rows=12, size=20, width=20, multiple=True) }}</div>
+            <div class="submit-button">{{ form.submit }}</div>  
         </div>
         <h2>Thank you</h2>
     </body>
