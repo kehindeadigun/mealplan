@@ -1,6 +1,7 @@
 import random
 import json
 
+random.seed(42)
 
 def import_file(file_name):
     ##Importing the JSON meal plan file
@@ -49,6 +50,10 @@ def get_random_meal_from(data,search):
 
 import random
 
+import random
+
+import random
+
 def create_random_meal_plan(meal_plan, users_choices, days):
     '''This creates a meal plan from the meal_plan  dictionary
     Args: 1. takes meal plan dictionary in format (day-> meal-> options->[ list of meals]).
@@ -56,7 +61,6 @@ def create_random_meal_plan(meal_plan, users_choices, days):
           3. takes the number of days (integer) to randomize the meal plan for.
     result: Returns a dictionary in format (day-> mealtime-> meal).
     '''
-
     custom_meal_plan = {}
     meal_sets = ['Breakfast', 'Lunch', 'Dinner', 'Snacks']
     
@@ -79,10 +83,12 @@ def create_random_meal_plan(meal_plan, users_choices, days):
                 else:
                     #if the choices do not match with the users selected protein options, go with the default meal
                     custom_meal_plan[daycount][meal] = get_random_meal_from(meal_info,'Default')
+
             else:
                 #if there are no options go with the default meal
                 custom_meal_plan[daycount][meal] = get_random_meal_from(meal_info,'Default')
     return custom_meal_plan
+
 
 meal_plan = import_file('meal_plan.json')
 
