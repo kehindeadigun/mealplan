@@ -1,11 +1,10 @@
 from flask import Flask
-from flask import render_template, redirect, url_for, request, redirect, flash
+from flask import render_template, redirect, url_for, request, redirect, flash, session
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, SelectMultipleField, widgets
 from wtforms.validators import DataRequired
 from mealplan import meal_plan, create_random_meal_plan, get_options
 from flask_wtf.csrf import CSRFProtect
-import random
 
 
 app = Flask(__name__)
@@ -13,7 +12,6 @@ app.config['SECRET_KEY'] = 'you-will-never-guess'
 
 csrf = CSRFProtect(app)
 
-users_choices = []
 days = 28
 
 class MultiCheckboxField(SelectMultipleField):
@@ -33,6 +31,7 @@ def home():
         if form.validate_on_submit():
             users_choices = form.choices.data
             print(users_choices)
+            session['users_choices'] = users_choices
             return redirect(url_for('mealplan'))
         else:
             flash("Validation Failed")
@@ -42,6 +41,7 @@ def home():
 
 @app.route('/mealplan')
 def mealplan():
+    users_choices = session['users_choices']
     meal_planned = create_random_meal_plan(meal_plan, users_choices, days)
     order=['Breakfast','Lunch','Dinner','Snacks']
     return (render_template('mealplan.html', mealplan=meal_planned, mealorder=order))
