@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, redirect, flash
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, SelectMultipleField, widgets
 from wtforms.validators import DataRequired
@@ -24,27 +24,32 @@ class ChoicesForm(FlaskForm):
     submit = SubmitField('Submit')
 
 @app.route('/', methods=['GET','POST'])
+@app.route('/home', methods=['GET','POST'])
 def home():
     form = ChoicesForm()
-    if form.validate_on_submit():
+    if request.method == 'POST' and form.validate_on_submit():
         users_choices = form.choices.data
-        return render_template(url_for(mealplan))
+        print(users_choices)
+        return redirect(url_for('mealplan'))
+    elif request.method == 'POST':
+        flash("Validation Failed")
+        print(form.errors)
     return render_template('home.html', form=form)
 
 
 @app.route('/mealplan')
 def mealplan():
-    #meal_plan = create_random_meal_plan(meal_plan, users_choices, days)
-    return (render_template('mealplan.html'))#, mealplan=meal_plan))
+    meal_planned = create_random_meal_plan(meal_plan, users_choices, days)
+    order=['Breakfast','Lunch','Dinner','Snacks']
+    return (render_template('mealplan.html', mealplan=meal_planned, mealorder=order))
 
 
-@app.errorhandler(404)
-def not_found(e):
-    return render_template('404.html')
-
+#@app.errorhandler(404)
+#def not_found(e):
+# return render_template('404.html')
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)
 
 

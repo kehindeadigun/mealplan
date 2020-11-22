@@ -3,22 +3,33 @@
     <head>
         <title>Meal Plan</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href= 'css/plan.css' rel='stylesheet' type='text/css'>
+        <link href= '{{url_for("static", filename="css/plan.css")}}' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <h1>Your Meal Plan</h1>
-        <div class="form">
+        <div class="plantable">
             <table>
                 <th>
                     <tr>
-                        <td>Breakfast</td>
+                        <td>Day</td>
+                        <td>Breakfast</td>                      
                         <td>Lunch</td>
                         <td>Dinner</td>
                         <td>Snacks</td>
                     </tr>
-                </th>                
+                </th>
+                <tbody>
+                    {% for day in mealplan.keys() %}
+                    <tr>
+                        <td>{{ day + 1 }}</td>
+                        {% for meal in mealorder %}
+                        <td>{{ mealplan[day][meal] }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>          
             </table>
         </div>
-        <h2>Thank you</h2>
+        <p><a href= '{{url_for("home")}}'>Reset Plan</a></p>
     </body>
 </html>

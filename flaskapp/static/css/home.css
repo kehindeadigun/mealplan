@@ -4,32 +4,47 @@ body{
     background-color: azure;
     text-align: center;
     margin: auto;
-}
+  /*background-image: url('https://images.pexels.com/photos/326279/pexels-photo-326279.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+*/}
 
 h1{
-    font-size: 16px;
+    font-size: 32px;
     text-align: center;
-    color: firebrick;
 }
 
 h2{
-    font-size: 14px;
+    font-size: 20px;
     text-align: center;
 }
 
 header{
-    background-color: lightblue;
+    /*background-color: lightblue;*/
     text-align: center;
     margin: auto;
 }
 
 .form {
     border: 1px solid rgb(162, 228, 222);
-    width: 800px;
+    max-width: 800px;
+    min-width: 300px;
     margin: auto;
     border-radius: 20px;
     background-color: royalblue;
     background-color: rgb(217, 255, 255);
+}
+
+@media only screen and (max-width:742px){
+    .form {
+        border: 1px solid rgb(162, 228, 222);
+        max-width: 800px;
+        min-width: 300px;
+        margin: 0;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 20px;
+        background-color: royalblue;
+        background-color: rgb(217, 255, 255);
+    }
 }
 
 #form-label{
@@ -42,7 +57,7 @@ label{
     font-size: 14px;
 }
 
-
+/*
 input[type="submit" i] {
     appearance: none;
     user-select: none;
@@ -59,7 +74,7 @@ input[type="submit" i] {
     border-image: none;
     height: 100px;
     width: 200px;
-}
+}*/
 
 #choices {
     list-style: none;
@@ -80,6 +95,7 @@ li {
     text-align: center;
     padding: 13px 5px;
 }
+
 
 .submit-button{
     text-align: center;

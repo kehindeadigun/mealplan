@@ -15,5 +15,14 @@
             <div class="submit-button">{{ form.submit }}</div>  
         </div>
         <h2>Thank you</h2>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
     </body>
 </html>
