@@ -1,14 +1,16 @@
-from flask import Flask
-from flask import render_template, redirect, url_for, request, redirect, flash, session
+import wtforms
+from flask import (Flask, flash, redirect, render_template, request, session,
+                   url_for)
 from flask_wtf import FlaskForm
-from wtforms import SubmitField, SelectMultipleField, widgets
-from wtforms.validators import DataRequired
-from mealplan import meal_plan, create_random_meal_plan, get_options
 from flask_wtf.csrf import CSRFProtect
+from wtforms import SelectMultipleField, SubmitField, widgets
+from wtforms.validators import DataRequired
 
+from mealplan import create_random_meal_plan, get_options, meal_plan
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'you-will-never-guess'
+app.config['WTF_CSRF_TIME_LIMIT'] = None
 
 csrf = CSRFProtect(app)
 
