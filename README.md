@@ -1,7 +1,7 @@
 # Meal Planning Algorithm
 
 This repository contains files for a crafting a weekly meal plan from a predifined meal and an algorithm for randomized meal planning algorithm. This was creted for a  health and planning application. It contains scripts and notebooks for explanation as well as a small flask application to see the algorithm. 
-
+![Web App Image 1](images/webapp-image1.jpg)
 ---
 
 ## Table Of Contents
@@ -49,9 +49,10 @@ A Python script, `mealplan.py`, containing function that run a data cleaning pip
  - Returns the plan
 
 2. **Flask Web Application**
-A flask web app visualizes the created meal plan and provides a simple interface where workers can users can input their preferences and get a randomized meal plan. Images below:
+A flask web app visualizes the created meal plan and provides a simple interface where workers can users can input their preferences and get a randomized meal plan. 
 
-![Web App Image 1](images/webapp-image1.jpg)
+Images below:
+
 ![Web App Image 2](images/webapp-image2.jpg)
 ![Web App Image 3](images/webapp-image3.jpg)
 ![Data Image 1](images/meal_tree.jpg)
