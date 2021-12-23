@@ -1,5 +1,7 @@
 # Meal Planning Algorithm
-This repo contains files for a crafting a weekly meal plan from a predifined meal and an algorithm for randomized meal planning algorithm. This was creted for a  health and planning application. It contains scripts and notebooks for explanation as well as a small flask application to see the algorithm. 
+
+This repository contains files for a crafting a weekly meal plan from a predifined meal and an algorithm for randomized meal planning algorithm. This was creted for a  health and planning application. It contains scripts and notebooks for explanation as well as a small flask application to see the algorithm. 
+
 ---
 
 ## Table Of Contents
@@ -22,7 +24,7 @@ Meal Plan Main Folder
    |   |--data <br>
    |   |    |--meal_plan.json #json data file containing meals <br>
    |   |<br>
-   |   |--static <br> #style files for the application
+   |   |--static #style files for the application <br>
    |   |   |--css  <br>
    |   |   |    |--home.css <br>
    |   |   |    |--plan.css <br>
